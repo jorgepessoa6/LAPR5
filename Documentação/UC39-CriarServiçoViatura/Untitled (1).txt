@@ -1,0 +1,5 @@
+title UC39-Create Vehicle Duty
+
+
+User->System: Starts the register of a new Vehicle Duty
+System->User: Returns the success of the operation

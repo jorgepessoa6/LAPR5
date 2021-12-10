@@ -1,0 +1,9 @@
+title UC47-Define Driver from SPA
+
+
+Data Administrator->SPA:Fill NrMecano, Nome, DataNascimento, CC, NIF, TipoTripulante,DataEntrada, DataSaida, DataCartaConducao, NrDataConducao parameters and click add button
+SPA->DefineDriverComponent:addDefineDriver(NrMecano, Nome,DataNascimento, CC, NIF, TipoTripulante, DataEntrada, DataSaida, DataCartaConducao, NrDataConducao)
+DefineDriverComponent->DefineDriverService:addDefineDriver(NrMecano, Nome,DataNascimento, CC, NIF, TipoTripulante, DataEntrada, DataSaida, DataCartaConducao, NrDataConducao)
+DefineDriverService->DefineDriverController:Post/DefineDriver
+DefineDriverComponent->DefineDriverComponent:handleError()
+SPA->Data Administrator: Responds with status

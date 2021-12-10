@@ -1,0 +1,748 @@
+{
+	"info": {
+		"_postman_id": "e54b96b1-012b-445f-85f5-7eb53caffff3",
+		"name": "testes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "importFail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c4681ff-bf23-4b75-bee8-a856fa9c4bc7",
+						"exec": [
+							"pm.test('Post Import fail ', function()  {\r",
+							"    pm.response.to.have.status(400);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "xml",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/fileImport/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fileImport",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "import",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d410109-52c8-4c4c-a6bd-7d4741908654",
+						"exec": [
+							"pm.test('Post import ', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "xml",
+							"type": "file",
+							"src": "/C:/Users/Pedro Cardoso/Desktop/demo-lapr5.glx.xml"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/fileImport/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fileImport",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostVehicle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "94b6381b-0802-47b7-9bb7-897797425355",
+						"exec": [
+							"pm.test('Post vehicle ', function()  {\r",
+							"    pm.response.to.have.status(201);\r",
+							"\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"vehicletest1\",\r\n    \"name\": \"bus\",\r\n    \"autonomy\": \"300\",\r\n    \"cost\": \"20\",\r\n    \"averageSpeed\": \"100\",\r\n    \"energySource\":\"1\",\r\n    \"consumption\":\"50\",\r\n    \"emissions\":\"30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/vehicle/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicle",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostVehicleFail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "72c248d1-4dd6-41d3-9f1a-930f2ce9c0e3",
+						"exec": [
+							"pm.test('Post vehicle ', function()  {\r",
+							"    pm.response.to.have.status(500);\r",
+							"\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"vehicletest1\",\r\n    \"name\": \"bus\",\r\n    \"autonomy\": \"alta\",\r\n    \"cost\": \"20\",\r\n    \"averageSpeed\": \"100\",\r\n    \"energySource\":\"1\",\r\n    \"consumption\":\"50\",\r\n    \"emissions\":\"30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/vehicle/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicle",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f5b1a1c0-eb4b-4a96-8122-a7b03b6d0d90",
+						"exec": [
+							"pm.test('Post Line Success ', function()  {\r",
+							"    pm.response.to.have.status(201);\r",
+							"\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"testKey\",\r\n    \"name\": \"testName\",\r\n    \"color\": \"RGB(1,2,3)\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/line/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostFailed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e83b9fd6-e1a5-4172-9507-0e07b6a93af7",
+						"exec": [
+							"pm.test('Post Line Failed ', function()  {\r",
+							"    pm.response.to.have.status(402);\r",
+							"\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"testName\",\r\n    \"color\": \"RGB(1,2,3)\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/line/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pathSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8faaeb97-e635-4163-a566-ca1393970dff",
+						"exec": [
+							"pm.test('Post Path ', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idLinha\": \"testKey\",\r\n    \"linePathID\": \"LinePath:103\",\r\n    \"orientation\": \"Go\",\r\n    \"key\": \"Path:103\",\r\n    \"isEmpty\": false,\r\n    \"pathNodes\": { \"pathNode\": [{\"key\": \"PathNode:104\",\"node\": \"Node:1\"}, {\"key\": \"PathNode:105\",\"node\": \"Node:2\",\"duration\":4,\"distance\":5}]}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/path/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postNode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ee7a208-5f3f-45d6-a4e4-bd8cfbf0c597",
+						"exec": [
+							"pm.test('Post Path ', function()  {\r",
+							"    pm.response.to.have.status(201);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"key\":\"test1\",\r\n    \"name\": \"test1\",\r\n    \"lat\": 2,\r\n    \"lon\": 3,\r\n    \"shortName\": \"xD\",\r\n    \"isDepot\":false,\r\n    \"isReliefPoint\":false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/node/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node",
+						"post"
+					]
+				},
+				"description": "    "
+			},
+			"response": []
+		},
+		{
+			"name": "DriverPostFail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed85a982-9f0d-4e80-a9e5-a4bd875da7b0",
+						"exec": [
+							"pm.test('Post driver failure', function()  {\r",
+							"    pm.response.to.have.status(500);\r",
+							"\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"drivertest3\",\r\n    \"name\":\"Marcos\",\r\n    \"description\": \"Conduz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/driver/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"driver",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DriverPostTest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1b702ea-37a7-44dc-a70b-0b1376d8d3fd",
+						"exec": [
+							"pm.test('Post driver', function()  {\r",
+							"    pm.response.to.have.status(201);\r",
+							"\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"drivertest4\",\r\n    \"name\":\"Marcos\",\r\n    \"description\": \"Condutor com muita experiencia\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/driver/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"driver",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listPathsByLineSuccess",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/path/listarPercursosLinha/testKey",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"listarPercursosLinha",
+						"testKey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByNameSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5b5ea909-982a-4f2d-9d59-12ea4bdfdad6",
+						"exec": [
+							"pm.test('List Paths By Name ', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/node/listarNome/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node",
+						"listarNome",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterByCodeSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65377ff3-34b2-4bb3-ba95-26b800cddca6",
+						"exec": [
+							"pm.test('Filter Nodes by Code', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/node/filtrarKey/test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node",
+						"filtrarKey",
+						"test1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterByNameSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a377edf3-e389-4b8e-9017-cef3b13ddead",
+						"exec": [
+							"pm.test('Filter Nodes by Name', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/node/filtrarNome/test1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node",
+						"filtrarNome",
+						"test1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByCodeSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "524a2c3a-085b-4b3d-975b-174139c1ce59",
+						"exec": [
+							"pm.test('List Paths By Code ', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/node/listarCodigo/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node",
+						"listarCodigo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByCodeSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40c11a68-8ea9-4927-be92-a0f0ed252491",
+						"exec": [
+							"pm.test('get Line by key Success ', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/line/listarCodigo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line",
+						"listarCodigo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByNameSucccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1dcca488-b350-4029-adf6-182892a17a27",
+						"exec": [
+							"pm.test('get Line by name Success ', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/line/listarNome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line",
+						"listarNome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterByNameSuccess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4512b8d-14d2-4813-a752-2bfc38b23890",
+						"exec": [
+							"pm.test('filter Line by name Success', function()  {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/line/filtrarNome/tes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line",
+						"filtrarNome",
+						"tes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

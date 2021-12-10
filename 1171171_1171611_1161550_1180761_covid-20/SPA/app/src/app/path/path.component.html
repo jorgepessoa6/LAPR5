@@ -1,0 +1,149 @@
+<div class="main" id="nodes">
+  <div class="slide-left">
+    <h1 class="titulos" style="margin-left: 43%;">Percursos</h1>
+  </div>
+
+  <div class="pathSection">
+    <h3 class="titleSection" style="margin-left: 43%;">Criar percurso</h3>
+    <form style="margin-left: 0%">
+
+      <div class="listarform">
+
+        <div class="row">
+          <div class="col">
+            <label for="linePathID">Linha: </label><br>
+            <select [(ngModel)]="selected" name="lines" placeholder="select" (ngModelChange)="onOptionsSelected()">
+              <option *ngFor="let sta of lines" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="linePathID">Código do Percurso da linha: </label><br>
+            <input #linePathID name="linePathID" type="text" class="form-control" placeholder="Ex: LinePath:1" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="path">Código do Percurso: </label><br>
+            <input #path name="path" type="text" class="form-control" placeholder="Ex: Path:1" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="orientation">Orientação? </label><br>
+            <select [(ngModel)]="selectedOri" name="orientation" placeholder="selectedOri"
+              (ngModelChange)="onOriSelected()">
+              <option *ngFor="let sta of optionsOrientation" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="isEmpty">Está vazio? </label><br>
+            <select [(ngModel)]="selectedIsEmpty" name="isEmpty" placeholder="selectedIsEmpty"
+              (ngModelChange)="onIsEmptySelected()">
+              <option *ngFor="let sta of optionsIsEmpty" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <button (click)="addPath(linePathID.value, path.value)" type="submit" id="botaoAdicionar"
+          class="btn btn-primary botaoForm" style="margin-left: 43%; margin-bottom: 5px;">
+          Adicionar
+        </button>
+
+      </div>
+
+      <!--
+                PathNode
+            -->
+      <div class="listarform">
+        <div class="row">
+          <div class="col">
+            <label for="node">Nó de segmento: </label><br>
+            <select [(ngModel)]="selectedNode" name="pathnode" placeholder="selectedNode"
+              (ngModelChange)="onNodeSelected()">
+              <option *ngFor="let sta of nodes" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="distance">Distância: </label><br>
+            <input #distance name="distance" type="number" class="form-control" placeholder="Ex: 1" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="duration">Duração: </label><br>
+            <input #duration name="duration" type="number" class="form-control" placeholder="Ex: 1" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <button (click)="addPathNode(distance.value, duration.value)" type="submit" id="botaoAdic"
+          class="btn btn-primary botaoForm" style="margin-left: 43%; margin-bottom: 5px;">
+          Adicionar Segmento
+        </button>
+        <table class="table" border="1" id="pathsAll" style="background-color: white; margin-bottom: 10px" width="100%"
+          height="50">
+          <thead class="thead-dark">
+            <tr>
+              <th>Nó</th>
+              <th>Distancia</th>
+              <th>Duração</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let path1 of pathNodes">
+            <td>{{ path1.node }}</td>
+            <td>{{ path1.distance }}</td>
+            <td>{{ path1.duration }}</td>
+          </tr>
+        </table>
+      </div>
+    </form>
+
+    <div class="listarform">
+      <h3 class="titleSection" style="margin-top: 20px">Listar Percursos de Linha</h3>
+      <form style="margin-right: 10%">
+        <div class="row">
+          <div class="col">
+            <label for="node">Linha: </label><br>
+            <select [(ngModel)]="selectedLine" name="line" placeholder="selectedLine"
+              (ngModelChange)="onLineSelected()" style="position: relative; right: 30px; bottom: 5px">
+              <option *ngFor="let sta of lines" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+        <table class="table" border="1" id="pathsAll" style="background-color: white; margin-bottom: 10px" width="100%"
+          height="50">
+          <thead class="thead-dark">
+            <tr>
+              <th>Código</th>
+              <th>Segmentos</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let path1 of pathsPrint">
+            <td>{{ path1.key }}</td>
+            <td>{{ path1.segment }}</td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+title UC04 - Create Path
+
+participant ":User" as user
+participant ":route" as route
+participant ":IPathController" as icontroller
+participant ":PathController" as controller
+participant ":IPathService" as iservice
+participant ":PathService" as service
+participant ":PathMapper" as mapper
+participant ":Path" as line
+participant ":IPathRepo" as irepo
+participant ":PathRepo" as repo
+participant ":LinePath" as linePath
+participant ":ILineRepo" as ilinerepo
+participant ":LineRepo" as linerepo
+participant ":Line" as model
+
+
+
+user->route: Starts creating a path
+route->icontroller: post('/post)
+icontroller->controller: createPath(req,res,next)
+controller->iservice: createPath(nodeDTO)
+iservice->service: createPath(nodeDTO)
+service->line:create(pathDTO,id)
+line->service:result(path)
+service->linerepo: findByKey(idLinha)
+linerepo->service:line
+service->linePath: create(pathDTO)
+linePath->service:linePath
+service->model: push(linePath)
+service->irepo: save(path)
+irepo->repo: save(path)
+repo->irepo:path
+irepo->service:path
+service->ilinerepo:update(line)
+ilinerepo->linerepo:update(line)
+linerepo->ilinerepo:line
+ilinerepo->service:line
+service->mapper: toDTO(path)
+service->iservice:result(path)
+iservice->controller:result(path)
+controller->icontroller: send(status)
+icontroller->route: send(status)
+

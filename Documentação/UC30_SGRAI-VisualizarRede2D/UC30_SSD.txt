@@ -1,0 +1,5 @@
+title UC30- Visualize the grid in 2D
+
+User->System:Presses the display of the map with the grid
+User<--System:Operation Success
+

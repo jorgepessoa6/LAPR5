@@ -1,0 +1,5 @@
+title UC38-Create Trip
+
+
+User->System: Starts the register of a new trip
+System->User: Returns the success of the operation

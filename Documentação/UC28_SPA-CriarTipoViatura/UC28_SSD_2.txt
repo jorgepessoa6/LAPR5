@@ -1,0 +1,7 @@
+title UC28-Create Vehicle Type from SPA
+
+
+User->System:Choose Vehicle Type management option
+User<--System:Shows Vehicle Type sub menu
+User->System: Inserts data to create a new Vehicle Type
+User<--System:Creates new Vehicle Type and informs the user of the success of the operation

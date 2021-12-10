@@ -1,0 +1,9 @@
+title UC46-Define Vehicle from SPA
+
+
+Data Administrator->SPA:Fill matricula, VIN, tipo, dataEntrada parameters and click add button
+SPA->DefineVehicleComponent:addDefineVehicle(matricula, VIN, tipo, dataEntrada)
+DefineVehicleComponent->DefineVehicleService:addDefineVehicle(matricula, VIN, tipo, dataEntrada)
+DefineVehicleService->DefineVehicleController:Post/DefineVehicle
+DefineVehicleComponent->DefineVehicleComponent:handleError()
+SPA->Data Administrator: Responds with status

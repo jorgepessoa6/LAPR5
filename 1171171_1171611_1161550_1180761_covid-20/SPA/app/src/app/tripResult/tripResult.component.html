@@ -1,0 +1,81 @@
+<div class="main" id="nodes">
+  <div class="slide-left">
+    <h1 class="titulos" style="margin-left: 43%;">Percursos</h1>
+  </div>
+
+
+  <div class="importform">
+    <div class="importSection" style="margin-left: 43%;">
+      <h3 class="titleSection" >Caminho Mais Curto</h3>
+      <form style="margin-left: 5%; margin-bottom: 2%;">
+
+        <div class="col">
+          <label for="time" style="position: relative; right: 40px; bottom: 5px">Tempo de Partida:</label><br>
+          <input #time id="time" type="time" class="form-control"
+            style="position: relative; right: 40px; bottom: 5px" />
+        </div>
+        
+
+        <div class="row">
+          <div class="col">
+            <label for="node" style="position: relative; right: 40px; bottom: 5px">Nó Partida: </label><br>
+            <select style="position: relative; right: 40px; bottom: 5px" [(ngModel)]="node1" name="nodes" placeholder="node1"
+              (ngModelChange)="onNode1Selected()">              
+            <option *ngFor="let sta of nodes" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="node" style="position: relative; right: 40px; bottom: 5px">Nó chegada: </label><br>
+            <select  style="position: relative; right: 40px; bottom: 5px" [(ngModel)]="node2" name="nodes" placeholder="node2"
+            (ngModelChange)="onNode2Selected()">  
+              <option *ngFor="let sta of nodes" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <button
+          (click)="addRequest(time.value)"
+          type="submit" id="botaoAdicionar" class="card card-small"
+          style="position: relative; right: 40px; top: 10px">Gerar
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="importform2" style="top: 50px">
+    <div class="listarform" style="top: 20px">
+      <h3 class="titleSection" style=" margin-left: 43%; ">Listar Resultados de Viagem</h3>
+      <form style="margin-right: 30%">
+        <button (click)="getTripResults()" type="submit" id="botaoList" class="card card-small"
+          style="position: relative; bottom: 5px; left:20px">
+          Listar Resultado
+        </button>
+        <table class="table" border="1" id="tripResultAll" style="position: relative; background-color: white; left: 20px; margin-bottom: 10px"
+          width="100%" height="50">
+          <thead class="thead-dark">
+            <tr>
+              <th>Tempo Inicial</th>
+              <th>No Inicial</th>
+              <th>No Final</th>
+              <th>Caminho</th>
+              <th>Tempo Final</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let path1 of tripResult">
+            <td>{{ path1.time }}</td>
+            <td>{{ path1.noI }}</td>
+            <td>{{ path1.noF }}</td>
+            <td>{{ path1.caminho }}</td>
+            <td>{{ path1.finalTime }}</td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+
+  <h1 style="text-align: center">Otimização e Planeamento de Transportes</h1>
+  <input type="hidden" #selection />
+
+  <div class="card-container">
+    <div class="card card-small" (click)="selection.value = 'importFile'" tabindex="0" routerLink="/import">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+      <span>Importar Ficheiro</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'node'" tabindex="0" routerLink="/node">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+      <span>Gerir Nós de Rede</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'line'" tabindex="0" routerLink="/line">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Linhas de Rede</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'path'" tabindex="0" routerLink="/path">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Percursos de Rede</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'driver'" tabindex="0" routerLink="/drivers">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Tipos de Tripulante</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'vehicleType'" tabindex="0" routerLink="/vehicleType">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Tipos de Viatura</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'tripResult'" tabindex="0" routerLink="/tripResult">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Resultados de Viagem</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'vehicleDuty'" tabindex="0" routerLink="/vehicleDuty">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Servico de Viatura</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'driverDuty'" tabindex="0" routerLink="/driverDuty">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Servico de Tripulante</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'vehicle'" tabindex="0" routerLink="/vehicle">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Definir Viatura</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'defineDriver'" tabindex="0" routerLink="/defineDrivers">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Definir Tripulante</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'mapa'" tabindex="0" routerLink="/mapa" width="500" height="50000">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Mostrar mapa</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'workBlock'" tabindex="0" routerLink="/workBlock">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Blocos de trabalho</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'trip'" tabindex="0" routerLink="/trip">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Viagens</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'generations'" tabindex="0" routerLink="/generations">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+
+      <span>Gerir Gerações</span>
+    </div>
+  </div>
+<router-outlet></router-outlet>  

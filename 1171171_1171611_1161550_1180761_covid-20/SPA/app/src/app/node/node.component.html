@@ -1,0 +1,151 @@
+<div class="main" id="nodes" >
+  <div class="slide-left">
+      <h1 class="titulos" style="margin-left: 43%;" >Nós de Rede</h1>
+  </div>
+
+  <div class="nodeSection">
+    <div class="criarform">
+      <h3 class="titleSection"  style="margin-left: 43%;">Criar Nó de Rede </h3>
+      <form class="firstform" id="form" style="margin-right: 10%;"  style="margin-left: 43%;">
+
+        <div class="row" >
+          <div class="col">
+              <label for="keyNode">Código do Nó: </label><br>
+              <input #keyNode name="keyNode" type="text" class="form-control"
+              required placeholder="Obrigatória">
+          </div>
+          <div class="col">
+          </div>
+       </div>  
+        
+        <div class="row">
+              <div class="col">
+                  <label for="nameNode">Nome do Nó: </label><br>
+                  <input #nameNode name="nameNode" type="text" class="form-control"
+                  maxlength="200" placeholder="Obrigatório">
+                  <ul id="nameReq" class="input-requirements">
+                    <li>Máximo de 200 caracters</li>
+                </ul>
+              </div>
+              <div class="col">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <label for="latNode">Latitude do Nó: </label><br>
+                  <input #latNode name="latNode" type="number" class="form-control">
+              </div>
+              <div class="col">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <label for="lonNode">Longitude do Nó: </label><br>
+                  <input #lonNode name="lonNode" type="number" class="form-control">
+              </div>
+              <div class="col">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <label for="shortName">Abreviatura do Nó: </label><br>
+                  <input #shortName name="shortName" type="text" class="form-control"
+                  required maxlength="20" placeholder="Obrigatório">
+                  <ul id="shortNameReq" class="input-requirements">
+                    <li>Máximo de 20 caracters</li>
+                </ul>
+              </div>
+              <div class="col">
+              </div>
+          </div>
+          <!-- 
+              IMPLEMENTAR RATIO!!
+           -->
+          <div class="row">
+              <div class="col">
+                  <label for="isDepot">Estação de Recolha? </label><br>
+                  <select [(ngModel)]="selectedIsDepot" name="isDepot" placeholder="selectedIsDepot" (ngModelChange)="onIsDepotSelected()">
+                    <option *ngFor="let sta of optionsIsDepot" [ngValue]="sta">{{sta.name}}</option>
+                  </select>
+              </div>
+              <div class="col">
+              </div>
+          </div>
+          <!-- 
+              IMPLEMENTAR RATIO!!
+           -->
+          <div class="row">
+              <div class="col">
+                  <label for="isReliefPoint">Ponto de Rendição? </label><br>
+                  <select [(ngModel)]="selectedIsReliefPoint" name="isReliefPoint" placeholder="selectedIsReliefPoint" (ngModelChange)="onIsReliefPointSelected()">
+                    <option *ngFor="let sta of optionsIsReliefPoint" [ngValue]="sta">{{sta.name}}</option>
+                  </select>
+              </div>
+              <div class="col">
+              </div>
+          </div>
+
+          <button
+              (click)="addNode(keyNode.value, nameNode.value,latNode.value,lonNode.value,shortName.value)"
+              type="submit" name="botaoAdicionarAdd" class="btn btn-primary botaoForm">Adicionar</button>
+      </form>
+    </div>
+    <div class="listarform">
+
+      <h3 class="titleSection" style="margin-top: 20px;">Listar Nós de Rede</h3>
+      <form style="margin-right: 10%">
+        
+        <button (click)="getNodes()" type="submit" id="botaoAdicionarGetNodes" class="card card-small"
+          style="position: relative; bottom: 0px"> Listar Nós de forma ascendente</button>
+
+        <label for="name" style="position: relative; bottom: 0px; left: 10px">Filtar por nome:</label><br>
+        <input #name id="name" type="text" class="form-control" style="position: relative; left: 20px; bottom: 0px" />
+        <button
+          (click)="filterName(name.value)"
+          type="submit"
+          id="botaoAdicionar"
+          class="card card-small"
+          style="position: relative; bottom: 37px; left: 280px"
+        >
+          <span>Filtrar</span>
+        </button>
+        <div class="tabela">
+        <table
+          class="table"
+          id="nodesAll"
+          style="background-color: white; margin-bottom: 10px"
+          width="100%"
+          height="50"
+        >
+        
+          <thead class="thead-dark">
+            <tr>
+              <th>Codigo</th>
+              <th>Nome</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>Abreviatura</th>
+              <th>Estação de Recolha</th>
+              <th>Ponto de Rendição</th>
+
+            </tr>
+          </thead>
+          <tr *ngFor="let node1 of nodes">
+            <td>{{ node1.key}}</td>
+            <td>{{ node1.name }}</td>
+            <td>{{ node1.latitude }}</td>
+            <td>{{ node1.longitude }}</td>
+            <td>{{ node1.shortName }}</td>
+            <td>{{ node1.isDepot ? 'Sim' : 'Não' }}</td>
+            <td>{{ node1.isReliefPoint ? 'Sim' : 'Não' }}</td>
+          </tr>
+        </table>
+      </div>
+      </form>
+    </div>
+  </div>
+
+</div>

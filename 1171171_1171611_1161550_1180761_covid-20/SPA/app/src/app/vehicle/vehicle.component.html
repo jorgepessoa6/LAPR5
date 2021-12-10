@@ -1,0 +1,61 @@
+<div class="main" id="defineVehicle">
+    <div class="slide-left">
+        <h1 class="titulos" style="margin-left: 42%;">Viatura</h1>
+    </div>
+
+    <div class="criarform">
+        <div class="vehicleSection" style="margin-left: 42%;">
+            <h3 class="titleSection">Definir Viatura </h3>
+            <form>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="matriculaVehicle">Matricula da viatura: </label><br>
+                        <input #matriculaVehicle name="matriculaVehicle" type="text" class="form-control"
+                            placeholder="Ex: 36-TH-72">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="VINVehcile">Numero de identifcação da viatura: </label><br>
+                        <input #VINVehcile name="VINVehcile" type="text" class="form-control"
+                            placeholder="Ex: 5GZCZ43D13S812715">
+                        <ul id="VINReq" class="input-requirements">
+                            <li>Unico com 17 caracteres</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="tipoVehicle">Tipo de viatura: </label><br>
+                        <select [(ngModel)]="selectedVehicleTypeFirst" name="vehicleType" placeholder="selectedVehicleTypeFirst" (ngModelChange)="onFirstVehicleTypeSelected()">
+                            <option *ngFor="let sta of vehicleType" [ngValue]="sta">{{sta.name}}</option>
+                          </select>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dataEntradaVehicle">Data de entrada ao serviço da viatura: </label><br>
+                        <input #dataEntradaVehicle name="dataEntradaVehicle" type="date" class="form-control"
+                            placeholder="Ex: XX-XX-XXXX">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <button (click)="addVehicle(matriculaVehicle.value,VINVehcile.value,dataEntradaVehicle.value)" 
+                type="submit" id="botaoAdicionar"
+                    class="btn btn-primary botaoForm">Adicionar</button>
+            </form>
+        </div>
+    </div>
+</div>

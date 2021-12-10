@@ -1,0 +1,41 @@
+<div class="main" id="drivers">
+  <div class="slide-left">
+      <h1 class="titulos" style="margin-left: 39%;">Tipos de tripulante</h1>
+  </div>
+
+  <div class="criarform">
+  <div class="driverSection" style="margin-left: 42%;">
+      <h3 class="titleSection">Criar Tipos de Tripulante </h3>
+      <form >
+
+          <div class="row">
+              <div class="col">
+                  <label for="nameDriver">Nome do tripulante: </label><br>
+                  <input #nameDriver name="nameDriver" type="text" class="form-control" placeholder="Ex: Pedro">
+              </div>
+              <div class="col">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <label for="descriptionDriver">Descrição do tripulante: </label><br>
+                  <input #descriptionDriver name="descriptionDriver" type="text" class="form-control" 
+                  minlength="20" placeholder="Minimo 20 caracters">
+                  <ul id="descriptionReq" class="input-requirements">
+                      <li>Minimo de 20 caracters</li>
+                  </ul>
+              </div>
+              <div class="col">
+              </div>
+          </div>
+
+
+          <button
+              (click)="addDriver(nameDriver.value,descriptionDriver.value)"
+              type="submit" id="botaoAdicionar" class="btn btn-primary botaoForm">Adicionar</button>
+      </form>
+  </div>
+  </div>
+
+</div>

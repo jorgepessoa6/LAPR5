@@ -1,0 +1,207 @@
+<div class="main" id="lines">
+  <div class="slide-left">
+    <h1 class="titulos" style="margin-left: 43%">Viagens</h1>
+  </div>
+
+  <div class="lineSection">
+    <div class="criarform">
+      <h3 class="titleSection" style="margin-left: 20%">Criar Viagens</h3>
+      <form style="margin-right: 10%" style="margin-left: 20%">
+        <div class="row">
+          <div class="col">
+            <label for="nameLine" style="position: relative; bottom: 5px">Linha:</label><br />
+            <select [(ngModel)]="selectedLine" name="lines" placeholder="selectedLine"
+              (ngModelChange)="onLineSelected()">
+              <option *ngFor="let sta of lines" [ngValue]="sta">
+                {{ sta.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="beginHour" style="position: relative; bottom: 5px">Hora de Início:</label><br />
+            <input #beginHour name="beginHour" type="text" class="form-control" placeholder="Ex: 12:00:00"
+              style="position: relative" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <label for="frequency" style="position: relative; top: 5px">Frequência:</label><br />
+            <input #frequency name="frequency" type="text" class="form-control" placeholder="Ex: 20 min"
+              style="position: relative; top: 5px" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="numOfTrips" style="position: relative; top: 5px">Número de Viagens:</label><br />
+            <input #numOfTrips name="numOfTrips" type="text" class="form-control" placeholder="Ex: 5"
+              style="position: relative; top: 5px" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="firstNode" style="position: relative; top: 5px">Percurso de Ida:</label><br />
+            <select [(ngModel)]="selectedGoPath" name="pathsGo" placeholder="selectedGoPath"
+              (ngModelChange)="onGoPathSelected()">
+              <option *ngFor="let sta of pathsGo" [ngValue]="sta">
+                {{ sta.key }}
+              </option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="firstNode" style="position: relative; top: 5px; margin-bottom: 10px;">Percurso de
+              Volta:</label><br />
+            <select [(ngModel)]="selectedReturnPath" name="pathsReturn" placeholder="selectedReturnPath"
+              (ngModelChange)="onReturnPathSelected()">
+              <option *ngFor="let sta of pathsReturn" [ngValue]="sta">
+                {{ sta.key }}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <form style="margin-right: 10%; top: 10px">
+              <table class="table" border="1" id="pathsAll"
+                style="background-color: white; margin-bottom: 10px; top: 10px" width="60%" height="50">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Codigo do Percurso</th>
+                    <th>Segmentos</th>
+                  </tr>
+                </thead>
+                <tr *ngFor="let path1 of pathsPrint">
+                  <td>{{ path1.key }}</td>
+                  <td>{{ path1.segment }}</td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+
+        <button (click)="addTrip(beginHour.value, frequency.value, numOfTrips.value)" type="submit" id="botaoAdicionar"
+          class="card card-small" style="position: relative; top: 13px">
+          Adicionar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="lineSection">
+    <div class="criarform">
+      <h3 class="titleSection" style="margin-left: 20%">Criar Viagem Ad Hoc</h3>
+      <form style="margin-right: 10%" style="margin-left: 20%">
+        <div class="row">
+          <div class="col">
+            <label for="nameLine2" style="position: relative; bottom: 5px">Linha:</label><br />
+            <select [(ngModel)]="selectedLine2" name="lineadhoc" placeholder="selectedLine2"
+              (ngModelChange)="onLineSelectedAdHoc()">
+              <option *ngFor="let sta of lines" [ngValue]="sta">
+                {{ sta.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="beginHour" style="position: relative; bottom: 5px">Hora de Início:</label><br />
+            <input #beginHour2 id="beginHour2" type="text" class="form-control" placeholder="Ex: 12:00:00"
+              style="position: relative" />
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="firstNode" style="position: relative; top: 5px">Percurso:</label><br />
+            <select [(ngModel)]="selectedPathAdHoc" name="paths2" placeholder="selectedPathAdHoc"
+              (ngModelChange)="onPathSelected()">
+              <option *ngFor="let sta of paths2" [ngValue]="sta">
+                {{ sta[0].key }}
+              </option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="col">
+          <form style="margin-right: 10%; top: 10px">
+            <table class="table" border="1" id="pathsAll"
+              style="background-color: white; margin-bottom: 10px; top: 10px" width="60%" height="50">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Codigo do Percurso</th>
+                  <th>Segmentos</th>
+                </tr>
+              </thead>
+              <tr *ngFor="let path1 of pathsPrint2">
+                <td>{{ path1.key }}</td>
+                <td>{{ path1.segment }}</td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <button (click)="addTripAdHoc(beginHour2.value)" type="submit" id="botaoAdicionar2" class="card card-small"
+          style="position: relative; top: 13px">
+          Adicionar
+        </button>
+      </form>
+    </div>
+
+
+
+  </div>
+
+
+  <div class="lineSection">
+    <div class="criarform">
+      <h3 class="titleSection" style="margin-left: 20%">Listar Viagens por Linha</h3>
+      <form style="margin-right: 10%" style="margin-left: 20%">
+
+        <div class="row">
+          <div class="col">
+            <label for="nameLine" style="position: relative; bottom: 5px">Linha:</label><br />
+            <select [(ngModel)]="selectedLine3" name="lines" placeholder="selectedLine3"
+              (ngModelChange)="onLineSelectedList()">
+              <option *ngFor="let sta of lines" [ngValue]="sta">
+                {{ sta.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <table class="table" border="1" id="tripsAll" style="background-color: white; margin-bottom: 10px" width="100%"
+          height="50">
+          <thead class="thead-dark">
+            <tr>
+              <th>Código</th>
+              <th>Orientacao</th>
+              <th>Código do Percurso</th>
+              <th>Gerada Automaticamente</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let trip1 of tripsOfLine">
+            <td>{{ trip1.key }}</td>
+            <td>{{trip1.orientation == 0 ? 'Ida' : 'Volta'}}</td>
+            <td>{{ trip1.path }}</td>
+            <td>{{ trip1.isGenerated ? 'Sim' : 'Não'}}</td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>

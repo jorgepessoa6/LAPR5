@@ -1,0 +1,117 @@
+<div class="register">
+  <div class="row">
+      <div class="col-md-9 register-right">
+
+        <div class="card">    
+          <h5 class="card-header">Registe os seus dados</h5>    
+          <div class="card-body">    
+            <div class="form-group">
+              <input type="text" #firstName id="firstName" class="form-control"
+                  placeholder="Primeiro Nome" value="" required />
+          </div>
+          <div class="form-group">
+              <input type="text" #username id="username" class="form-control"
+                  placeholder="Username" value="" required />
+          </div>
+          <div class="form-group">
+            <input type="text" #email id="email" class="form-control"
+                placeholder="Email" value="" required />
+        </div>
+          <div class="form-group">
+              <input type="password" #pass1 id="pass1" class="form-control" placeholder="Password"
+                  value="" required />
+          </div>
+          <div class="form-group">
+            <input type="password" #pass2 id="pass2" class="form-control" placeholder="Confirme a Password"
+                value="" required />
+          </div> 
+          <div class="form-group">
+          <button (click)="abrirPopup()" type="submit" class="btn btn-primary btnRegister"
+              id="botaoPop">Registar</button>
+      
+          </div>    
+        </div>  
+</div>
+
+<div id="consentimento" class="modal">
+
+  <div class="modal-content">
+      <span class="close" (click)="fecharPopup()">&times;</span>
+
+      <p style="font-weight: bold; margin-top: 2%">
+        Para criar uma conta na OPT – Otimização e Planeamento de Transportes, é
+        necessário concordar com as nossas Políticas de Privacidade.
+      </p>
+      <p>
+        Quando cria uma conta, processamos os seus dados pessoais, tendo em
+        conta os seguintes pontos:
+      </p>
+      <ul>
+        <li>
+          Armazenamos as informações que nos fornece, como nome e endereço de
+          e-mail, a data de nascimento e a localização do cliente para controlo
+          de serviços.
+        </li>
+        <li>
+          Vamos guardar o seu nome e e-mail para termos forma de o identificar
+          na nossa base de dados.
+        </li>
+        <li>
+          Utilizamos o endereço de email para entra em contacto com o cliente.
+          Esta comunicação tem como objetivo de tratamento dos dados do cliente
+          e mudanças na nossa Política de Privacidade.
+        </li>
+        <li>
+          O cliente deverá ter a idade minima de 13 anos para dar consentimento.
+        </li>
+        <li>
+          A localização do cliente nunca é guardada armazenada podendo este
+          desativar a partilha da mesma no seu diapositivo. Apenas é necessária
+          no momento de utilização do componente de visualização, o Mapa da
+          Rede, para que o cliente se possa situar com precisão no mapa.
+        </li>
+        <li>
+          No caso de inatividade por parte do cliente, os dados permaneceram no
+          sistema durante o período de um ano. No fim deste período os dados
+          serão removidos do sistema.
+        </li>
+      </ul>
+      <p>
+        Em qualquer altura, é possível ao cliente, aceder aos seus dados
+        (podendo mesmo alterá-los), a forma de tratamento dos mesmos e a sua
+        finalidade.
+      </p>
+      <p>O cliente pode também solicitar a eliminação de certos dados:</p>
+      <ul>
+        <li>Se estes deixam de ser necessários para a sua finalidade.</li>
+        <li>
+          Quando é retirado o consentimento sobre os mesmos e não existe outro
+          fundamento jurídico para o mesmo.
+        </li>
+        <li>
+          Quando se oponha ao tratamento e não existam interesses legítimos
+          prevalecentes.
+        </li>
+        <li>Quando os dados pessoais foram tratados ilicitamente.</li>
+        <li>
+          Quando os dados pessoais têm de ser apagados para o cumprimento de uma
+          obrigação jurídica.
+        </li>
+        <li>
+          Quando os dados pessoais foram recolhidos no contexto da oferta de
+          serviços da sociedade da informação.
+        </li>
+      </ul>
+
+      <div class="form-check">
+          <input type="checkbox" class="form-check-input" name="consentimentoCheck" id="consentimentoCheck">
+          <label class="form-check-label" for="consentimentoCheck">Declaro que li, compreendi e aceito as Políticas de Privacidade e sou maior de 13 anos.</label>
+      </div>
+
+      <button (click)="register(firstName.value,username.value,email.value,pass1.value,pass2.value)" type="submit"
+          class="btn btn-primary btnRegister" id="botaoRegistar"
+          style="width: 20%; margin-left: 70%; margin-top: 0;">Confirmar</button>
+
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+title UC27-Create Driver Type from SPA
+
+Data Administrator->SPA :Fill name and description parameters and click add button
+SPA->DriverComponent:addDriver(name, description)
+DriverComponent->DriverService:addDriver(name, description)
+DriverService->DriverController: Post/driver
+DriverComponent->DriverComponent:handleError()
+SPA->Data Administrator: Responds with status

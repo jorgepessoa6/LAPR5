@@ -1,0 +1,5 @@
+title UC40-Create Workblock
+
+
+User->System: Starts the register of a new Workblock
+System->User: Returns the success of the operation

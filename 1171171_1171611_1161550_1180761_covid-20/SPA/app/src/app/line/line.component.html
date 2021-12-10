@@ -1,0 +1,121 @@
+<div class="main" id="lines">
+  <div class="slide-left">
+    <h1 class="titulos" style="margin-left: 43%;">Linhas de Rede</h1>
+  </div>
+
+  <div class="lineSection">
+    <div class="criarform">
+    <h3 class="titleSection"  style="margin-left: 43%;">Criar Linhas de Rede</h3>
+    <form style="margin-right: 10%" style="margin-left: 43%;">
+      <div class="row">
+        <div class="col">
+          <label for="nameLine" style="position: relative; bottom: 5px">Nome da Linha:</label><br>
+          <input
+            #nameLine
+            name="nameLine"
+            type="text"
+            class="form-control"
+            placeholder="Ex: Line:1"
+            style="position: relative; left: 5px; bottom: 5px"
+          />
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="firstNode" style="position: relative; bottom: 5px">Primeiro Nó da Linha:</label><br>
+          <select [(ngModel)]="selectedNodeFirst" name="nodes" placeholder="selectedNodeFirst" (ngModelChange)="onFirstNodeSelected()" style="position: relative; left: 5px;">
+            <option *ngFor="let sta of nodes" [ngValue]="sta">{{sta.name}}</option>
+          </select>
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="lastNode" style="position: relative; top: 1px">Último Nó da Linha:</label><br>
+          <select [(ngModel)]="selectedNodeLast" name="nodes1" placeholder="selectedNodeLast" (ngModelChange)="onLastNodeSelected()" style="position: relative; left: 5px;">
+            <option *ngFor="let sta of nodes" [ngValue]="sta">{{sta.name}}</option>
+          </select>
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="colorLine" style="position: relative; top: 5px">Cor da Linha:</label><br>
+          <input
+            #colorLine
+            name="colorLine"
+            type="text"
+            class="form-control"
+            placeholder="Ex: RGB(0,0,0)"
+            style="position: relative; left: 5px; top: 5px"
+          />
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <button
+        (click)="addLine(nameLine.value, colorLine.value)"
+        type="submit"
+        id="botaoAdicionar"
+        class="card card-small"
+        style="position: relative; top: 13px"
+      >
+        Adicionar
+      </button>
+    </form>
+    </div>
+    <div class="listarform">
+
+    <h3 class="titleSection" style="margin-top: 20px;">Listar Linhas de Rede</h3>
+    <form style="margin-right: 10%">
+      <button
+        (click)="getLines()"
+        type="submit"
+        id="botaoListar"
+        class="card card-small"
+        style="position: relative; bottom: 0px"
+      >
+        Listar Todas
+      </button>
+      <label for="name" style="position: relative; bottom: 0px; left: 10px">Filtro:</label>
+      <input #name id="name" type="text" class="form-control" style="position: relative; left: 20px; bottom: 0px" />
+      <button
+        (click)="filterLines(name.value)"
+        type="submit"
+        id="botaoFiltrar"
+        class="card card-small"
+        style="position: relative; bottom: 37px; left: 325px"
+      >
+        <span>Filtrar</span>
+      </button>
+      <table
+        class="table"
+        border="1"
+        id="linesAll"
+        style="background-color: white; margin-bottom: 10px"
+        width="100%"
+        height="50"
+      >
+        <thead class="thead-dark">
+          <tr>
+            <th>Nome</th>
+            <th>Primeiro Nó</th>
+            <th>Último Nó</th>
+            <th>Cor</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let line1 of lines">
+          <td>{{ line1.name }}</td>
+          <td>{{ line1.firstNode }}</td>
+          <td>{{ line1.lastNode }}</td>
+          <td>{{ line1.color }}</td>
+        </tr>
+      </table>
+    </form>
+    </div>
+  </div>
+</div>

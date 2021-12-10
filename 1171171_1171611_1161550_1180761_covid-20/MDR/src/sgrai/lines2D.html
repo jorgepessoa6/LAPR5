@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+           const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const camera = new THREE.PerspectiveCamera( 0.12		, window.innerWidth / window.innerHeight, 50, 100 );
+			camera.position.set( -8.38, 41.19, 70 );
+			camera.lookAt( -8.38, 41.19, 0 );
+
+			const scene = new THREE.Scene();
+
+            //create a blue LineBasicMaterial
+			const material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+			//create a green LineBasicMaterial
+			const material2 = new THREE.LineBasicMaterial( { color: 0x00ff00 } );
+			//create a red LineBasicMaterial
+			const material3 = new THREE.LineBasicMaterial( { color: 0xff0000} );
+			//create a pink LineBasicMaterial
+			const material4 = new THREE.LineBasicMaterial( { color: 0xfc03b6 } );
+			//create a pink LineBasicMaterial
+			const material5 = new THREE.LineBasicMaterial( { color: 0xfc03b6} );
+
+			//create a light blue LineBasicMaterial
+			const material6 = new THREE.LineBasicMaterial( { color: 0x0af0e8} );
+			//create a brown-orange LineBasicMaterial
+			const material7 = new THREE.LineBasicMaterial( { color: 0xd17d08} );
+			//create a white LineBasicMaterial
+			const material8 = new THREE.LineBasicMaterial( { color: 0xfcfbfa} );
+			//create a purple LineBasicMaterial
+			const material9 = new THREE.LineBasicMaterial( { color: 0x800080} );
+			//cirlce material
+			const material10 = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+			
+
+			const points = [];
+
+				
+			const aguia= ( new THREE.Vector3( -8.4464785432391, 41.1293363229325,0 ) );
+				{
+					const geometry_aguia = new THREE.CircleGeometry( 0.001, 14 );
+					const circle_aguia = new THREE.Mesh( geometry_aguia, material10 );
+					geometry_aguia.translate(-8.4464785432391, 41.1293363229325,0);
+					scene.add( circle_aguia );
+				}
+			const baltr= ( new THREE.Vector3( -8.38716802227697, 41.1937998023744, 0 ) );
+			const baltr1= ( new THREE.Vector3( -8.38816802227697, 41.1937998023744, 0 ) );
+				{
+					const geometry_aguia = new THREE.CircleGeometry( 0.001, 14 );
+					const circle_baltr = new THREE.Mesh( geometry_aguia, material10 );
+					geometry_aguia.translate(-8.38716802227697, 41.1937998023744, 0);
+					scene.add( circle_baltr );
+				}
+			const bestr= ( new THREE.Vector3( -8.34043029659082, 41.217018845589,0 ) );
+			{
+					const geometry_bestr = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_bestr = new THREE.Mesh( geometry_bestr, material10 );
+					geometry_bestr.translate(-8.34043029659082, 41.217018845589,0 );
+					scene.add( circle_bestr );
+				}
+			const cete= ( new THREE.Vector3( -8.35164059584564, 41.183243425797,0) );
+			{
+					const geometry_cete = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_cete = new THREE.Mesh( geometry_cete, material10 );
+					geometry_cete.translate(-8.35164059584564, 41.183243425797,0);
+					scene.add( circle_cete );
+				}
+			const crist= ( new THREE.Vector3( -8.34639896125324, 41.2207801252676,0 ) );
+			{
+					const geometry_crist = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_crist = new THREE.Mesh( geometry_crist, material10 );
+					geometry_crist.translate(-8.34639896125324, 41.2207801252676,0);
+					scene.add( circle_crist );
+				}
+			const digrj= ( new THREE.Vector3( -8.35481024956726, 41.2278665802794,0 ) );
+			{
+					const geometry_digrj = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_digrj = new THREE.Mesh( geometry_digrj, material10 );
+					geometry_digrj.translate(-8.35481024956726, 41.2278665802794,0 );
+					scene.add( circle_digrj );
+				}
+			const estlo= ( new THREE.Vector3( -8.4227924957086, 41.2521157104055,0 ) );
+			{
+					const geometry_estlo = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_estlo = new THREE.Mesh( geometry_estlo, material10 );
+					geometry_estlo.translate(-8.4227924957086, 41.2521157104055,0);
+					scene.add( circle_estlo );
+				}
+			const estpa= ( new THREE.Vector3( -8.33448520831829, 41.2082119860192,0 ) );
+			{
+					const geometry_estpa = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_estpa = new THREE.Mesh( geometry_estpa, material10 );
+					geometry_estpa.translate( -8.33448520831829, 41.2082119860192,0 );
+					scene.add( circle_estpa );
+				}
+			const gand= ( new THREE.Vector3( -8.43958765792976, 41.1956579348384,0) );
+			{
+					const geometry_gand = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_gand = new THREE.Mesh( geometry_gand, material10 );
+					geometry_gand.translate( -8.43958765792976, 41.1956579348384,0);
+					scene.add( circle_gand );
+				}
+			const lordl= ( new THREE.Vector3( -8.42293614720057, 41.2452627470645,0 ) );
+			{
+					const geometry_lordl = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_lordl = new THREE.Mesh( geometry_lordl, material10 );
+					geometry_lordl.translate( -8.42293614720057, 41.2452627470645,0);
+					scene.add( circle_lordl );
+				}
+			const mourz= ( new THREE.Vector3( -8.36577272258403, 41.1983610215263,0 ) );
+			{
+					const geometry_mourz = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_mourz = new THREE.Mesh( geometry_mourz, material10 );
+					geometry_mourz.translate(-8.36577272258403, 41.1983610215263,0);
+					scene.add( circle_mourz );
+				}
+			const parad= ( new THREE.Vector3( -8.37023578802149, 41.1765780321068,0 ) );
+			{
+					const geometry_parad = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_parad = new THREE.Mesh( geometry_parad, material10 );
+					geometry_parad.translate(-8.37023578802149, 41.1765780321068,0);
+					scene.add( circle_parad );
+				}
+			const pared= ( new THREE.Vector3( -8.33566951069481, 41.2062947118362,0 ) );
+			const pared1= ( new THREE.Vector3( -8.33666951069481, 41.2062947118362,0 ) );
+			{
+					const geometry_pared = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_pared = new THREE.Mesh( geometry_pared, material10 );
+					geometry_pared.translate(-8.33566951069481, 41.2062947118362,0);
+					scene.add( circle_pared );
+				}
+			const recar= ( new THREE.Vector3( -8.42215867462191, 41.1599363478137,0 ) );
+			const recar1= ( new THREE.Vector3( -8.42315867462191, 41.1599363478137,0 ) );
+			{
+					const geometry_recar = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_recar = new THREE.Mesh( geometry_recar, material10 );
+					geometry_recar.translate(-8.42215867462191, 41.1599363478137,0);
+					scene.add( circle_recar );
+				}
+			const sobro= ( new THREE.Vector3( -8.38118071581788, 41.2557331783506,0 ) );
+			{
+					const geometry_sobro = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_sobro = new THREE.Mesh( geometry_sobro, material10 );
+					geometry_sobro.translate(-8.38118071581788, 41.2557331783506,0 );
+					scene.add( circle_sobro );
+				}
+			const vando= ( new THREE.Vector3( -8.34160692293342, 41.2328015719913,0 ) );
+			const vando1= ( new THREE.Vector3( -8.34260692293342, 41.2328015719913,0 ) );
+			{
+					const geometry_vando = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_vando = new THREE.Mesh( geometry_vando, material10 );
+					geometry_vando.translate( -8.34160692293342, 41.2328015719913,0 );
+					scene.add( circle_vando );
+				}
+			const vccar= ( new THREE.Vector3( -8.35109395257277, 41.2090666564063,0 ) );
+			{
+					const geometry_vccar = new THREE.CircleGeometry( 0.001, 14 );
+					
+					const circle_vccar = new THREE.Mesh( geometry_vccar, material10 );
+					geometry_vccar.translate( -8.35109395257277, 41.2090666564063,0);
+					scene.add( circle_vccar );
+				}
+			
+			const aguia_pared=[];
+				aguia_pared.push(aguia);
+				aguia_pared.push(recar);
+				aguia_pared.push(parad);
+				aguia_pared.push(cete);
+				aguia_pared.push(pared);
+
+			const gand_pared=[];
+				gand_pared.push(gand);
+				gand_pared.push(vando1);
+				gand_pared.push(baltr1);
+				gand_pared.push(recar1);
+				gand_pared.push(pared1);
+
+			const lordl_pared=[];
+				lordl_pared.push(lordl);
+				lordl_pared.push(vando);
+				lordl_pared.push(baltr);
+				lordl_pared.push(recar);
+				lordl_pared.push(pared);
+
+			const baltr_crist=[];
+				baltr_crist.push(baltr);
+				baltr_crist.push(vccar);
+				baltr_crist.push(crist);
+			
+			const cete_sobro=[];
+				cete_sobro.push(cete);
+				cete_sobro.push(mourz);
+				cete_sobro.push(vccar);
+				cete_sobro.push(bestr);
+				cete_sobro.push(crist);
+				cete_sobro.push(sobro);
+			
+			const lordl_parad=[];
+				lordl_parad.push(lordl);
+				lordl_parad.push(digrj);
+				lordl_parad.push(crist);
+				lordl_parad.push(vccar);
+				lordl_parad.push(baltr);
+				lordl_parad.push(parad);
+
+			const estlo_lordl=[];
+				estlo_lordl.push(estlo);
+				estlo_lordl.push(lordl);
+			
+			const estlo_sobro=[];
+				estlo_sobro.push(estlo);
+				estlo_sobro.push(sobro);
+
+			const estpa_pared=[]; //9
+				estpa_pared.push(estpa);
+				estpa_pared.push(pared);
+
+				
+			const geometry = new THREE.BufferGeometry().setFromPoints( aguia_pared );
+			const line = new THREE.Line( geometry, material );
+			scene.add( line );
+
+			const geometry2 = new THREE.BufferGeometry().setFromPoints( gand_pared );
+			const line2 = new THREE.Line( geometry2, material2 );
+			scene.add( line2 );
+
+			const geometry3 = new THREE.BufferGeometry().setFromPoints( lordl_pared );
+			const line3 = new THREE.Line( geometry3, material3 );
+			scene.add( line3 );
+
+			const geometry4 = new THREE.BufferGeometry().setFromPoints( baltr_crist);
+			const line4 = new THREE.Line( geometry4, material4 );
+			scene.add( line4 );
+
+			const geometry5 = new THREE.BufferGeometry().setFromPoints( cete_sobro );
+			const line5 = new THREE.Line( geometry5, material5 );
+			scene.add( line5 );
+
+			const geometry6 = new THREE.BufferGeometry().setFromPoints( lordl_parad );
+			const line6 = new THREE.Line( geometry6, material6 );
+			scene.add( line6 );
+
+			const geometry7 = new THREE.BufferGeometry().setFromPoints( estlo_lordl );
+			const line7 = new THREE.Line( geometry7, material7 );
+			scene.add( line7 );
+
+			const geometry8 = new THREE.BufferGeometry().setFromPoints( estlo_sobro );
+			const line8 = new THREE.Line( geometry8, material8 );
+			scene.add( line8 );
+
+			const geometry9 = new THREE.BufferGeometry().setFromPoints( estpa_pared );
+			const line9 = new THREE.Line( geometry9, material9 );
+			scene.add( line9 );
+
+			renderer.render( scene, camera );
+		</script>
+	</body>
+</html>

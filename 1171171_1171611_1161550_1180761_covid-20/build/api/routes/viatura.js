@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const typedi_1 = require("typedi");
+const config_1 = __importDefault(require("../../config"));
+const celebrate_1 = require("celebrate");
+const route = express_1.Router();
+exports.default = (app) => {
+    app.use('/viatura', route);
+    const ctrl = typedi_1.Container.get(config_1.default.controller.viatura.name);
+    route.post('', celebrate_1.celebrate({
+        body: celebrate_1.Joi.object({
+            name: celebrate_1.Joi.string().required()
+        })
+    }), (req, res, next) => ctrl.createViatura(req, res, next));
+};
+//# sourceMappingURL=viatura.js.map

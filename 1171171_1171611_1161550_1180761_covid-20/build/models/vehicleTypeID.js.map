@@ -1,0 +1,1 @@
+{"version":3,"file":"vehicleTypeID.js","sourceRoot":"","sources":["../../MDR/src/models/vehicleTypeID.ts"],"names":[],"mappings":";;;AACA,kDAA+C;AAE/C,MAAa,aAAc,SAAQ,eAAW;IAE5C,IAAI,EAAE;QACJ,OAAO,IAAI,CAAC,GAAG,CAAC;IAClB,CAAC;IAEM,MAAM,CAAC,MAAM,CAAC,EAAmB;QACtC,OAAO,IAAI,aAAa,CAAC,EAAE,CAAC,CAAC;IAC/B,CAAC;CACF;AATD,sCASC"}

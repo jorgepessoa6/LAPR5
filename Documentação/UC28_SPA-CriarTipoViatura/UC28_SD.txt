@@ -1,0 +1,8 @@
+title UC28-Create Vehicle Type from SPA
+
+Data Administrator->SPA :Fill name, autonomy, cost, averageSpeed, energySource, consumption and emissions parameters and click add button
+SPA->VehicleComponent:addVehicle(name, autonomy, cost, averageSpeed, energySource, consumption and emissions)
+VehicleComponent->VehicleService:addVehicle(name, autonomy, cost, averageSpeed, energySource, consumption and emissions)
+VehicleService->VehicleController: Post/vehicle
+VehicleComponent->VehicleComponent:handleError()
+SPA->Data Administrator: Responds with status

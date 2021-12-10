@@ -1,0 +1,91 @@
+<div class="main" id="vehicles">
+    <div class="slide-left">
+        <h1 class="titulos" style="margin-left: 42%;">Tipos de Viatura</h1>
+    </div>
+  
+    <div class="criarform">
+    <div class="vehicleSection"  style="margin-left: 42%;">
+        <h3 class="titleSection">Criar Tipo de Viatura </h3>
+        <form >
+  
+            <div class="row">
+                <div class="col">
+                    <label for="nameVehicleType">Nome do tipo de viatura: </label><br>
+                    <input #nameVehicleType name="nameVehicleType" type="text" class="form-control" placeholder= "Ex: Autocarro" >
+                </div>
+                <div class="col">
+                </div>
+            </div>
+  
+            <div class="row">
+                <div class="col">
+                    <label for="autonomyVehicleType">Autonomia do tipo de viatura: </label><br>
+                    <input #autonomyVehicleType name="autonomyVehicleType" type="number" class="form-control" 
+                    min="1" placeholder= "Ex: 50000" >
+                    <ul id="autonomyReq" class="input-requirements">
+                        <li>Valor maior ou igual que 1</li>
+                    </ul>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="costVehicleType">Custo do tipo de viatura: </label><br>
+                    <input #costVehicleType name="costVehicleType" type="number" class="form-control" placeholder= "Ex: 10" >
+                </div>
+                <div class="col">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="averageSpeedVehicleType">Velocidade média do tipo de viatura: </label><br>
+                    <input #averageSpeedVehicleType name="averageSpeedVehicleType" type="number" class="form-control" 
+                    min="1" placeholder= "Ex: 30" >
+                    <ul id="averageSpeedReq" class="input-requirements">
+                        <li>Valor maior ou igual que 1</li>
+                    </ul>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="energySourceVehicleType">Fonte de energia do tipo de viatura: </label><br>
+                    <select [(ngModel)]="selectedEnergysource" name="energySourceVehicleType" placeholder="selectedEnergysource" (ngModelChange)="onEnergySourceSelected()">
+                        <option *ngFor="let sta of optionsEnergySource" [ngValue]="sta">{{sta.name}}</option>           
+                    </select>         
+            </div>
+                <div class="col">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="consumptionVehicleType">Consumo do tipo de viatura: </label><br>
+                    <input #consumptionVehicleType name="consumptionVehicleType" type="number" class="form-control" placeholder= "Ex: 18">
+                </div>
+                <div class="col">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="emissionsVehicleType">Emissões do tipo de viatura: </label><br>
+                    <input #emissionsVehicleType name="emissionsVehicleType" type="number" class="form-control" placeholder= "Ex: 1050">
+                </div>
+                <div class="col">
+                </div>
+            </div>
+  
+            <button 
+                (click)="addVehicleType(nameVehicleType.value,autonomyVehicleType.value,costVehicleType.value,
+                        averageSpeedVehicleType.value, consumptionVehicleType.value, emissionsVehicleType.value)"
+                type="submit" id="botaoAdicionar" class="btn btn-primary botaoForm">Adicionar</button>
+        </form>
+    </div>
+    </div>
+</div>

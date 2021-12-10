@@ -1,0 +1,17 @@
+#map {
+  width: 100%;
+  height: 800px;
+}
+
+#iframe-goes-in-here iframe {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  z-index: 1;
+}
+#my-gui-container {
+  position: absolute;
+  top:40px;
+  left: 0px;
+  z-index: 10;
+}

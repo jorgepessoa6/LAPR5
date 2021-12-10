@@ -1,0 +1,77 @@
+title UC01 - Importar Informação do Ficheiro
+
+
+participant ":User" as user
+participant ":Route" as route
+participant ":IFileImportController" as ifilecontroller
+participant ":FileImportController" as filecontroller
+participant ":IFileImportService" as ifileservice
+participant ":FileImportService" as fileservice
+participant ":INodeService" as inodeservice
+participant ":IPathService" as ipathservice
+participant ":ILineService" as ilineservice
+participant ":IVehicleService" as ivehicleservice
+participant ":NodeService" as nodeservice
+participant ":PathService" as pathservice
+participant ":LineService" as lineservice
+participant ":VehicleService" as vehicleservice
+participant ":INodeRepo" as inoderepo
+participant ":IPathRepo" as ipathrepo
+participant ":ILineRepo" as ilinerepo
+participant ":IVehicleRepo" as ivehiclerepo
+participant ":NodeRepo" as noderepo
+participant ":PathRepo" as pathrepo
+participant ":LineRepo" as linerepo
+participant ":VehicleRepo" as vehiclerepo
+
+
+
+user->route: Starts importing file
+route->ifilecontroller: post('/upload',(req, res, next))
+ifilecontroller->filecontroller:  importFile(req, res, next)
+filecontroller->fileservice: importXML(xml)
+
+
+fileservice->inodeservice: createNode(result)
+inodeservice->nodeservice: createNode(nodeDTO)
+nodeservice->inoderepo: save(nodeResult)
+inoderepo->noderepo:  save(nodeResult)
+noderepo->inoderepo: node
+inoderepo->nodeservice: node
+nodeservice->inodeservice:result(node)
+inodeservice->fileservice: result(node)
+
+
+fileservice->ipathservice: createPathImport(result)
+ipathservice->pathservice: createPath(pathDTO)
+pathservice->ipathrepo: save(pathResult)
+ipathrepo->pathrepo:  save(pathResult)
+pathrepo->ipathrepo: path
+ipathrepo->pathservice: path
+pathservice->ipathservice:result(path)
+ipathservice->fileservice: result(path)
+
+
+fileservice->ilineservice: createLineImport(result)
+ilineservice->lineservice: createLine(lineDTO)
+lineservice->ilinerepo: save(lineResult)
+ilinerepo->linerepo:  save(lineResult)
+linerepo->ilinerepo: line
+ilinerepo->lineservice: line
+lineservice->ilineservice:result(line)
+ilineservice->fileservice: result(line)
+
+fileservice->ivehicleservice: createVehicle(result)
+ivehicleservice->vehicleservice: createVehicle(vehicleDTO)
+vehicleservice->ivehiclerepo: save(vehicleResult)
+ivehiclerepo->vehiclerepo:  save(vehicleResult)
+vehiclerepo->ivehiclerepo: vehicle
+ivehiclerepo->vehicleservice: vehicle
+vehicleservice->ivehicleservice:result(vehicle)
+ivehicleservice->fileservice: result(vehicle)
+
+fileservice->filecontroller: status(status)
+filecontroller->ifilecontroller: status(status)
+ifilecontroller->route: status(status)
+route->user: Operação bem sucedida/Erro
+

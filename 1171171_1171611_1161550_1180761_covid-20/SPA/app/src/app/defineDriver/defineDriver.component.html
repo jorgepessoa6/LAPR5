@@ -1,0 +1,129 @@
+<div class="main" id="defineDriver">
+    <div class="slide-left">
+        <h1 class="titulos" style="margin-left: 42%;">Tripulante</h1>
+    </div>
+
+    <div class="criarform">
+        <div class="driverSection" style="margin-left: 42%;">
+            <h3 class="titleSection">Definir Tripulante </h3>
+            <form>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="nrMecanoDriver">Numero mecanografico do tripulante: </label><br>
+                        <input #nrMecanoDriver name="nrMecanoDriver" type="text" class="form-control"
+                        minlength="9" maxlength="9"  placeholder="Ex: 1161fg782">
+                        <ul id="nrMecanoReq" class="input-requirements">
+                            <li>Unico com 9 caracteres</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="nomeDriver">Nome do tripulante: </label><br>
+                        <input #nomeDriver name="nomeDriver" type="text" class="form-control" placeholder="Ex: Andre">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dataNascimentoDriver">Data de nascimento do tripulante: </label><br>
+                        <input #dataNascimentoDriver name="dataNascimentoDriver" type="date" class="form-control"
+                            placeholder="Ex: 2000-1-1">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="CCDriver">Cartão de cidadão do tripulante: </label><br>
+                        <input #CCDriver name="CCDriver" type="number" class="form-control" placeholder="Ex: 12345678">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="NIFDriver">NIF do tripulante: </label><br>
+                        <input #NIFDriver name="NIFDriver" type="number" class="form-control" placeholder="Ex: 300200100">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="tipoDriver">Tipo do tripulante: </label><br>
+                        <select [(ngModel)]="selectedDriverTypeFirst" name="driverType" placeholder="selectedDriverTypeFirst" (ngModelChange)="onFirstDriverTypeSelected()">
+                            <option *ngFor="let sta of driverType" [ngValue]="sta">{{sta.name}}</option>
+                          </select>
+                    </div>
+
+                    <button (click)="addDriver()" type="submit" id="botaoAdic" class="btn btn-primary botaoForm"
+                    style=" margin-bottom: 5px;">Adicionar Tipo de Tripulante
+                    </button>
+                    
+                    <div class="col">
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dataEntradaDriver">Data de entrada na empresa do tripulante: </label><br>
+                        <input #dataEntradaDriver name="dataEntradaDriver" type="date" class="form-control"
+                            placeholder="Ex: 2000-1-1">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dataSaidaDriver">Data de saida na empresa do tripulante: </label><br>
+                        <input #dataSaidaDriver name="dataSaidaDriver" type="date" class="form-control"
+                            placeholder="Ex: 2000-1-1">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dataCartaConducaoDriver">Data de emissão da Carta de conducao do tripulante:
+                        </label><br>
+                        <input #dataCartaConducaoDriver name="dataCartaConducaoDriver" type="date" class="form-control"
+                            placeholder="Ex: 2000-1-1">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="nrCartaConducaoDriver">Numero da Carta de conducao do tripulante: </label><br>
+                        <input #nrCartaConducaoDriver name="nrCartaConducaoDriver" type="number" class="form-control"
+                            placeholder="Ex: 46362246">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+
+                <button (click)="addDefineDriver(nrMecanoDriver.value, nomeDriver.value, dataNascimentoDriver.value,
+                        CCDriver.value, NIFDriver.value, dataEntradaDriver.value, 
+                        dataSaidaDriver.value, dataCartaConducaoDriver.value, nrCartaConducaoDriver.value)"
+                    type="submit" id="botaoAdicionar" class="btn btn-primary botaoForm">Adicionar</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>

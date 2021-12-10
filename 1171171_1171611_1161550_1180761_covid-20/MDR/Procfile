@@ -1,0 +1,2 @@
+web: cd /MDR; node app.ts
+server: cd SPA/app; ng serve 

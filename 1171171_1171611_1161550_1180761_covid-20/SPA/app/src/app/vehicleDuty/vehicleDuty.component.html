@@ -1,0 +1,82 @@
+<div class="main" id="nodes">
+  <div class="slide-left">
+    <h1 class="titulos" style="margin-left: 41%;">Servicos de Viatura</h1>
+  </div>
+  <br>
+  <div class="vehicledutySection">
+    <h3 class="titleSection" style="margin-left: 44%;">Criar Servico de viatura</h3>
+    <form style="margin-left: 0%">
+
+      <div class="row" style="margin-left: 45%;">
+        <div class="col">
+          <label for="code">Codigo Alfanumerico: </label><br>
+          <input #code name="code" type="text" class="form-control" placeholder="Ex: V12" />
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row" style="margin-left: 45%;">
+        <div class="col">
+          <label for="code">RGB: </label><br>
+          <input #rgb name="rgb" type="text" class="form-control" placeholder="Ex: RGB(12,12,12)" />
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="listarform">
+        <div class="row" style="margin-left: 45%;">
+          <div class="col">
+            <label for="node">Blocos de trabalho: </label><br>
+            <select [(ngModel)]="selectedWB" name="contiguousWB" placeholder="selectedWB" 
+              (ngModelChange)="onWBSelected()">
+              <option *ngFor="let sta of contiguousWB" [ngValue]="sta">{{sta.key}}</option>
+            </select>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <button (click)="addWorkBlock()" type="submit" id="botaoAdic" class="btn btn-primary botaoForm"
+          style="margin-left: 43%; margin-bottom: 5px;">Adicionar Bloco de Trabalho
+        </button>
+      </div>
+
+      <button (click)="addVehicleDuty(code.value, rgb.value)" type="submit" id="botaoAdic2" class="btn btn-primary botaoForm"
+        style="margin-left: 43%; margin-bottom: 5px;">Adicionar Servico de viatura
+      </button>
+    </form>
+
+  </div>
+
+
+
+
+  <div class="vehicledutySection">
+    <div class="criarform">
+      <br>
+      <h3 class="titleSection" style="margin-left: 41%">Listar Servicos de Viagem</h3>
+      <form style="margin-right: 0%" style="margin-left: 0%">
+
+        <button (click)="listVehicleDuty()" type="submit" id="botaoAdic2" class="btn btn-primary botaoForm"
+         style="margin-left: 47%; margin-bottom: 5px;">Listar
+       </button>
+
+        <table class="table" border="1" id="vehicleDutyAll" style="background-color: white; margin-bottom: 10px"
+          width="100%" height="50">
+          <thead class="thead-dark">
+            <tr>
+              <th>Código</th>
+              <th>Blocos de Trabalho</th>
+              <th>RGB</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let v of pathsPrint">
+            <td>{{ v.key }}</td>
+            <td>{{ v.segment }}</td>
+            <td>{{ v.rgb }}</td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+  </div>
+
+</div>

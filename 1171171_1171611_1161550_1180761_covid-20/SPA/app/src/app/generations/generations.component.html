@@ -1,0 +1,149 @@
+<div class="main" id="generations">
+  <div class="slide-left">
+    <h1 class="titulos" style="margin-left: 40%;">Gerações</h1>
+  </div>
+
+  <div class="importform">
+    <div class="importSection" style="margin-left: 40%;">
+      <h3 class="titleSection">Criar Gerações</h3>
+      <form style="margin-left: 5%;">
+
+        <div class="col">
+          <label for="numVehicle" style="position: relative; top: 5px">Número do Veículo:</label><br>
+          <input #numVehicle id="numVehicle" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+        <div class="col">
+          <label for="numGenarations" style="position: relative; top: 5px">Número de Gerações:</label><br>
+          <input #numGenarations id="numGenarations" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+
+        <div class="col">
+          <label for="populationSize" style="position: relative; top: 5px">Tamanho da População:</label><br>
+          <input #populationSize id="populationSize" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+        <div class="col">
+          <label for="crossProbability" style="position: relative; top: 5px">Probabilidade de Cruzamento:</label><br>
+          <input #crossProbability id="crossProbability" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+        <div class="col">
+          <label for="mutationProbability" style="position: relative; top: 5px">Probabilidade de Mutação:</label><br>
+          <input #mutationProbability id="mutationProbability" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+
+        <div class="col">
+          <label for="passingPercentage" style="position: relative; top: 5px">Percentagem de Passagem para a Próxima
+            Geração:</label><br>
+            <select [(ngModel)]="selected" name="perc" placeholder="selected" (ngModelChange)="onSelected()">
+              <option *ngFor="let sta of options" [ngValue]="sta">{{sta.name}}</option>
+            </select>
+        </div>
+        <div class="col"></div>
+
+
+        <div class="col">
+          <label for="maxTime" style="position: relative; top: 5px">Tempo Máximo (segundos):</label><br>
+          <input #maxTime id="maxTime" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+
+        <div class="col">
+          <label for="minimumEval" style="position: relative; top: 5px">Avaliação Mínima:</label><br>
+          <input #minimumEval id="minimumEval" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+
+        <div class="col">
+          <label for="identicalGenerations" style="position: relative; top: 5px">Gerações Idênticas de
+            estabilização:</label><br>
+          <input #identicalGenerations id="identicalGenerations" type="number" class="form-control"
+            style="position: relative; left: 5px; top: 5px" />
+        </div>
+        <div class="col"></div>
+
+
+        <button
+          (click)="sendRequest(numVehicle.value,numGenarations.value,populationSize.value,crossProbability.value,mutationProbability.value,maxTime.value,minimumEval.value,identicalGenerations.value)"
+          type="submit" id="botaoAdicionar" class="btn btn-primary botaoForm"
+          style="position: relative; left: 5px; top: 5px">Gerar
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="listarform">
+
+    <h3 class="titleSection" style="margin-top: 20px;">Resultado</h3>
+    <form style="margin-right: 10%">
+      
+      <table class="table" border="1" id="generations"  style="background-color: white; margin-top: 20px; top: 20px;" width="60%" height="50">
+        <thead class="thead-dark">
+          <tr>
+            <th>População</th>
+            <th>Tentativa</th>
+            <th>Ordem</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let gen of generations">
+          <td>{{ gen.populations }}</td>
+          <td>{{ gen.orderGen}}</td>
+          <td>{{ gen.order}}</td>
+          
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <div class="listarform">
+
+    <h3 class="titleSection" style="margin-top: 20px;">Listar Resultados</h3>
+    <form style="margin-right: 10%">
+      
+      <button (click)="getPopulations()" type="submit" id="botaoAdicionarGetNodes" class="card card-small"
+        style="position: relative; bottom: 0px">Listar</button>
+      <div class="tabela">
+      <table
+        class="table"
+        id="geracoesAll"
+        style="background-color: white; margin-bottom: 10px"
+        width="100%"
+        height="50"
+      >
+      
+        <thead class="thead-dark">
+          <tr>
+            <th>População</th>
+            <th>Tentativa</th>
+            <th>Ordem</th>
+
+          </tr>
+        </thead>
+        <tr *ngFor="let node1 of pop">
+          <td>{{ node1.populations}}</td>
+          <td>{{ node1.orderGen}}</td>
+          <td>{{ node1.order}}</td>
+        </tr>
+      </table>
+    </div>
+    </form>
+  </div>
+</div>
